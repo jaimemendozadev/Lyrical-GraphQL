@@ -13565,37 +13565,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 130 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(6);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var IndexPage = function IndexPage() {
-  return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(
-      'h1',
-      null,
-      'Welcome Lyrical GraphQL'
-    )
-  );
-};
-
-exports.default = IndexPage;
-
-/***/ }),
+/* 130 */,
 /* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15463,9 +15433,13 @@ var _reactApollo = __webpack_require__(81);
 
 var _reactRouterDom = __webpack_require__(133);
 
-var _IndexPage = __webpack_require__(130);
+var _App = __webpack_require__(304);
 
-var _IndexPage2 = _interopRequireDefault(_IndexPage);
+var _App2 = _interopRequireDefault(_App);
+
+var _SongCreate = __webpack_require__(305);
+
+var _SongCreate2 = _interopRequireDefault(_SongCreate);
 
 var _SongList = __webpack_require__(131);
 
@@ -15484,8 +15458,9 @@ _reactDom2.default.render(_react2.default.createElement(
     _react2.default.createElement(
       _reactRouterDom.Switch,
       null,
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/songcreate', component: _SongCreate2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/songlist', component: _SongList2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _IndexPage2.default })
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _App2.default })
     )
   )
 ), document.querySelector('#root'));
@@ -36370,6 +36345,122 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 304 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var App = function App(_ref) {
+  var children = _ref.children;
+
+  return _react2.default.createElement(
+    "div",
+    { className: "container" },
+    _react2.default.createElement(
+      "h1",
+      null,
+      "Welcome Lyrical GraphQL"
+    ),
+    children
+  );
+};
+
+exports.default = App;
+
+/***/ }),
+/* 305 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _graphqlTag = __webpack_require__(172);
+
+var _graphqlTag2 = _interopRequireDefault(_graphqlTag);
+
+var _reactApollo = __webpack_require__(81);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SongCreate = function (_Component) {
+  _inherits(SongCreate, _Component);
+
+  function SongCreate(props) {
+    _classCallCheck(this, SongCreate);
+
+    var _this = _possibleConstructorReturn(this, (SongCreate.__proto__ || Object.getPrototypeOf(SongCreate)).call(this, props));
+
+    _this.state = {
+      title: ''
+    };
+    return _this;
+  }
+
+  _createClass(SongCreate, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h3',
+          null,
+          'Create a New Song'
+        ),
+        _react2.default.createElement(
+          'form',
+          null,
+          _react2.default.createElement(
+            'label',
+            null,
+            'Song Title:'
+          ),
+          _react2.default.createElement('input', {
+            onChange: function onChange(event) {
+              return _this2.setState({ title: event.target.value });
+            },
+            value: this.state.title
+          })
+        )
+      );
+    }
+  }]);
+
+  return SongCreate;
+}(_react.Component);
+
+exports.default = SongCreate;
 
 /***/ })
 /******/ ]);
