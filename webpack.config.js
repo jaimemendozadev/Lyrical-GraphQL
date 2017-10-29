@@ -1,10 +1,15 @@
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const client = path.resolve(__dirname, 'client')
+
+/*
+  Note: removed webpack html plugin from config
+*/
 
 module.exports = {
   entry: './client/index.js',
   output: {
-    path: '/',
+    path: client,
     filename: 'bundle.js'
   },
   module: {
@@ -19,10 +24,5 @@ module.exports = {
         test: /\.css$/
       }
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'client/index.html'
-    })
-  ]
+  }
 };
